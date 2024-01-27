@@ -8,7 +8,7 @@ import qZone3 from '../../../assets/qZone3.png'
 
 const RightSideNav = () => {
   return (
-    <div>
+    <div className="border">
 
       <div className="p-4">
             <h2 className="text-2xl font-bold mb-3 ">Login with</h2>
