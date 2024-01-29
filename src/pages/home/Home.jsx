@@ -6,6 +6,7 @@ import RightSideNav from "../shared/rightSideNav/RightSideNav";
 import BreakingNews from "./BreakingNews";
 
 import NewsAll from "./NewsAll";
+import NewsDetails from "../newsDetails/NewsDetails";
 
 const Home = () => {
 
@@ -36,7 +37,10 @@ const Home = () => {
         <div className="md:col-span-2 mx-auto border">
 
           {
-            News.map(news => <NewsAll key={news.id} news={news}></NewsAll>)
+            News.map(news =>
+            <NewsAll key={news._id} news={news}></NewsAll>
+            
+            )
           }
          
 

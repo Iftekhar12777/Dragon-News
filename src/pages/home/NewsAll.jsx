@@ -1,21 +1,14 @@
 import { useState } from "react";
 import { CiBookmark, CiShare2 } from "react-icons/ci";
 import { IoEyeSharp } from "react-icons/io5";
+import { Link } from "react-router-dom";
+import NewsDetails from "../newsDetails/NewsDetails";
 
 
 const NewsAll = ({ news }) => {
 
-  const originalText =news.details
-    ;
+  const {details, _id}=news
 
-  const [showFullText, setShowFullText] = useState(false);
-
-  const handleReadMoreClick = () => {
-    setShowFullText(!showFullText);
-  };
-
-  // Determine whether to show full text or a preview based on the state
-  const displayText = showFullText ? originalText : `${originalText.slice(0, 150)}...`;
 
 
 
@@ -58,12 +51,12 @@ const NewsAll = ({ news }) => {
         <figure><img src={news.author.img} alt="Shoes" /></figure>
 
         <div className="border-b">
-          <p className="mt-1">{displayText}</p>
-          {originalText.length > 150 && (
-            <a className=" text-pink-600 font-medium" href="#read-more" onClick={handleReadMoreClick}>
-              {showFullText ? 'Read Less' : 'Read More'}
-            </a>)}
+          {
+            details.length > 150 ? <p>{details.slice(0,150)} <Link   to={`/news/${_id}`} className="text-violet-500 font-bold"> Read More...</Link></p> : <p>{details}</p>
+          }
         </div>
+
+        
 
         {/* Ratings and view */}
         <div >
